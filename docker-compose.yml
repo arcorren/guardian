@@ -148,6 +148,8 @@ services:
   api-gateway:
     <<: *service-template
     image: gcr.io/hedera-registry/api-gateway-demo:${GUARDIAN_VERSION:-latest}
+    env_file:
+      - ./api-gateway/configs/.env.gateway.${GUARDIAN_ENV}
     expose:
       - 3002
       - 6555
